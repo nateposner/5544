@@ -4249,7 +4249,7 @@ Length: 1956, dtype: float64</code></pre>
 </div>
 <p>3. The columns whose names begin with “PCIP” contain the proportions of students at each school studying various fields (e.g., Engineering, Psychology). Each field is represented by a two-digit code called the <a href="https://nces.ed.gov/ipeds/cipcode/browse.aspx?y=55">CIP code</a>.</p>
 <p>If we only consider the proportions of students studying various fields, what schools are most similar to Cal Poly? Specify how you’re making this decision.</p>
-<p>I made this decision by standardizing the PCIP columns before computing Euclidean distance from Cal Poly. PCIP proportions vary college-by-college, but very popular vs. very niche majors can skew this. Standardization</p>
+<p>I made this decision by standardizing the PCIP columns before computing Euclidean distance from Cal Poly. PCIP proportions vary college-by-college, but very popular vs. very niche majors can skew this. Standardization makes it so that a match on niche programs counts as much as a match on popular ones.</p>
 <div id="cell-50" class="cell" data-execution_count="33">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>X_pcip <span class="op">=</span> df_college.<span class="bu">filter</span>(like<span class="op">=</span><span class="st">&quot;PCIP&quot;</span>).dropna()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
